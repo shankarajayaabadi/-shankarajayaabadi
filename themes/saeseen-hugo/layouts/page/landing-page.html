@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="{{ .Site.Params.fontawesome }}">
+</head>
+<body>
+
+<main class="landing-main">
+    {{ with .Params.hero }}
+    <section class="hero hero-promo">
+        <div class="container">
+            <div class="hero-content">
+                <h1>{{ .title }}</h1>
+                <p>{{ .description }}</p>
+            </div>
+            {{ if .image }}
+            <div class="hero-image">
+                <img src="{{ .image }}" alt="{{ .title }}">
+            </div>
+            {{ end }}
+        </div>
+    </section>
+    {{ end }}
+
+    <div class="container">
+        {{ .Content }}
+    </div>
+
+    <!-- Tambahkan Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2>{{ .Site.Params.gallery.title }}</h2>
+            <p class="section-description">{{ .Site.Params.gallery.description }}</p>
+            
+            <div class="gallery-grid">
+                {{ range .Site.Params.gallery_items }}
+                <div class="gallery-item">
+                    <img src="{{ .image }}" alt="{{ .title }}">
+                    <div class="gallery-item-content">
+                        <h3>{{ .title }}</h3>
+                        <span class="category">{{ .category }}</span>
+                        <p>{{ .description }}</p>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <!-- Tambahkan Countdown Timer -->
+            <div class="countdown-timer">
+                <h3>Promo Berakhir Dalam:</h3>
+                <div class="countdown-wrapper">
+                    <div class="countdown-item">
+                        <span id="days">00</span>
+                        <span class="countdown-label">Hari</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <span class="countdown-label">Jam</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <span class="countdown-label">Menit</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <span class="countdown-label">Detik</span>
+                    </div>
+                </div>
+            </div>
+
+            <form id="checkoutForm" onsubmit="submitToWhatsApp(event)" class="contact-form">
+                <h2>Formulir Pemesanan</h2>
+                
+                <input type="text" id="nama" name="nama" placeholder="Nama Lengkap" required>
+                <input type="tel" id="telepon" name="telepon" placeholder="Nomor WhatsApp" required>
+                <input type="text" id="alamat" name="alamat" placeholder="Alamat Lengkap" required>
+                <select id="produk" name="produk" required>
+                    <option value="">Pilih Produk</option>
+                    {{ range .Site.Params.products }}
+                        <optgroup label="{{ .name }}">
+                        {{ range .items }}
+                            <option value="{{ .item }} - {{ .price }}">{{ .item }} ({{ .price }})</option>
+                        {{ end }}
+                        </optgroup>
+                    {{ end }}
+                </select>
+                <input type="number" id="jumlah" name="jumlah" placeholder="Jumlah (m²)" required min="1">
+                <textarea id="catatan" name="catatan" placeholder="Catatan Tambahan (opsional)"></textarea>
+                
+                <button type="submit" class="cta-button">Pesan Harga Promo Sekarang</button>
+            </form>
+            
+            <!-- Tambahkan tombol direct WhatsApp tanpa div container -->
+            <a href="{{ .Site.Params.whatsapp }}" class="whatsapp-button">
+                <i class="fab fa-whatsapp"></i>
+                Hubungi Admin Via WhatsApp
+            </a>
+        </div>
+    </section>
+</main>
+
+<script>
+function submitToWhatsApp(e) {
+    e.preventDefault();
+    
+    const nama = document.getElementById('nama').value;
+    const telepon = document.getElementById('telepon').value;
+    const alamat = document.getElementById('alamat').value;
+    const produk = document.getElementById('produk').value;
+    const jumlah = document.getElementById('jumlah').value;
+    const catatan = document.getElementById('catatan').value;
+    
+    const message = `*Pesanan Baru!*%0A%0A` +
+        `Nama: ${nama}%0A` +
+        `No. WhatsApp: ${telepon}%0A` +
+        `Alamat: ${alamat}%0A` +
+        `Produk: ${produk}%0A%0A` +
+        `Jumlah: ${jumlah} m²%0A%0A` +
+        `Catatan: ${catatan}%0A%0A` +
+        `*Mohon segera diproses, terima kasih!*`;
+    
+    window.location.href = `{{ .Site.Params.whatsapp }}${message}`;
+}
+
+// Tambahkan Script Countdown
+function countdown() {
+    // Set tanggal target (7 hari dari sekarang)
+    const now = new Date().getTime();
+    const target = new Date();
+    target.setDate(target.getDate() + 7);
+    target.setHours(23, 59, 59, 0);
+    
+    function update() {
+        const now = new Date().getTime();
+        const distance = target - now;
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+        document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+        
+        if (distance < 0) {
+            clearInterval(timer);
+            document.querySelector(".countdown-timer").innerHTML = "<h3>Promo Telah Berakhir!</h3>";
+        }
+    }
+    
+    update();
+    const timer = setInterval(update, 1000);
+}
+
+countdown();
+</script>
+
+</body>
+</html>

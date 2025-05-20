@@ -1,0 +1,20 @@
+<div class="mobile-only">
+  <div class="chat-to-top">
+    <div class="chat-to-top-button">
+      <a href="https:{{ .Site.Params.whatsapp }}"><i class="fab fa-whatsapp"></i> Whatsapp</a>
+    </div>
+  </div>
+  <div class="chat-to-bottom">
+    <div class="chat-to-top-button-2">
+      <a href="tel:{{ .Site.Params.telepon }}"><i class="fas fa-phone-alt"></i> Telepon</a>
+    </div>
+  </div>
+</div>
+<div class="desktop-tablet-only">
+  <div class="chat-to-top-desktop">
+    <a href="https:{{ .Site.Params.whatsapp }}"><i class="fab fa-whatsapp"></i></a>
+  </div>
+  <div class="chat-to-top-kiri">
+    <a href="tel:{{ .Site.Params.telepon }}"><i class="fas fa-phone"></i></a>
+  </div>
+</div>

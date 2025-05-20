@@ -1,0 +1,109 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="{{ .Site.Params.viewport }}">
+<link rel="icon" type="image/png" href="{{ .Site.Params.favicon | relURL }}">
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<link rel="stylesheet" href="{{ "css/styles.css" | relURL }}">
+<script src="{{ "js/menu-toggle.js" | relURL }}" defer></script>
+<link rel="stylesheet" href="{{ .Site.Params.fontawesome }}" media="print" onload="this.media='all'">
+<link rel="canonical" href="{{ .Permalink }}">
+{{ $title := .Site.Title }}
+{{ $description := .Site.Params.meta_description }}
+{{ $keywords := .Site.Params.keywords | default slice }}
+{{ if .IsHome }}
+  <title>{{ $title }}</title>
+  <meta name="description" content="{{ $description }}">
+  {{ $shuffledKeywords := shuffle $keywords }}
+  {{ $allKeywords := delimit $shuffledKeywords ", " }}
+  <meta name="keywords" content="{{ $allKeywords }}">
+{{ else if eq .RelPermalink "/daftar-harga/" }}
+  {{ $title = printf "Daftar Harga - %s" .Site.Title }}
+  {{ $description = printf "Lihat daftar harga layanan kami di %s" .Site.Title }}
+  <title>{{ $title }}</title>
+  <meta name="description" content="{{ $description }}">
+  <meta name="keywords" content="daftar harga, layanan, {{ delimit .Site.Params.materials ", " }}">
+{{ else if eq .RelPermalink "/profile/" }}
+  {{ $title = printf "Profil - %s" .Site.Title }}
+  {{ $description = printf "Pelajari lebih lanjut tentang %s dan layanan kami" .Site.Title }}
+  <title>{{ $title }}</title>
+  <meta name="description" content="{{ $description }}">
+  <meta name="keywords" content="profil perusahaan, tentang kami, layanan, {{ delimit .Site.Params.materials ", " }}">
+{{ else }}
+  <title>{{ .Title }} - {{ $title }}</title>
+  <meta name="description" content="{{ .Summary | default $description }}">
+  <meta name="keywords" content="{{ with .Params.keywords }}{{ delimit . ", " }}{{ else }}{{ delimit $keywords ", " }}{{ end }}">
+{{ end }}
+<meta property="og:type" content="localbusiness">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+{{- $featuredImage := .Site.Params.featured_image | absURL -}}
+<meta property="og:image" content="{{ $featuredImage }}">
+<meta name="twitter:image" content="{{ $featuredImage }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:url" content="{{ .Permalink }}">
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description }}">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "{{ .Site.Params.hero_title }}",
+  "image": "{{ .Site.Params.featured_image }}",
+  "description": "{{ .Site.Params.meta_description }}",
+  "url": "{{ .Permalink }}",
+  "telephone": "{{ .Site.Params.telepon | safeURL }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "{{ (index .Site.Params.footer_contact 0).text }}",
+    "addressLocality": "{{ (trim (index (split (index .Site.Params.footer_contact 0).text ",") 1) " ") }}",
+    "addressRegion": "{{ (trim (index (split (index .Site.Params.footer_contact 0).text ",") 2) " ") }}",
+    "postalCode": "16600",
+    "addressCountry": "ID"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "{{ .Site.Params.geo_latitude }}",
+    "longitude": "{{ .Site.Params.geo_longitude }}"
+  },
+  "areaServed": [
+  {{ range $index, $area := .Site.Params.area_served }}
+    {{ if $index }}, {{ end }}"{{ $area }}"
+  {{ end }}
+  ],
+  "openingHours": "{{ .Site.Params.opening_hours }}",
+  "priceRange": "Rp {{ .Site.Params.base_price }} - Rp {{ .Site.Params.price_range }}",
+  "makesOffer": [
+    {{ range $index, $materials := .Site.Params.materials }}
+      {{ if $index }},{{ end }}
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "{{ $materials }}"
+        }
+      }
+    {{ end }}
+  ],
+  "additionalType": "https://schema.org/Service",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Service",
+    "telephone": "{{ .Site.Params.telepon | safeURL }}",
+    "areaServed": "ID"
+  },
+  "acceptedPaymentMethod": [
+    {{ range $index, $method := .Site.Params.payment_methods }}
+      {{ if $index }},{{ end }}"{{ $method }}"
+    {{ end }}
+  ],
+  "hasMerchantReturnPolicy": {
+    "@type": "MerchantReturnPolicy",
+    "returnPolicyCategory": "https://schema.org/Refundable",
+    "merchantReturnDays": "30",
+    "returnMethod": "https://schema.org/ReturnInStore",
+    "returnFees": "https://schema.org/FreeReturn",
+    "description": "{{ (index .Site.Params.return_policies 0) }}"
+  }
+}
+</script>
