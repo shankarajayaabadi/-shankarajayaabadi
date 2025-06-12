@@ -8,5 +8,5 @@ Noindex: /tags/*/page/
 Disallow: /page/
 Noindex: /page/
 
-Sitemap: https://shankarajayaabadi.co.id/sitemap.xml
-Sitemap: https://shankarajayaabadi.co.id/sitemap.xml.gz
+Sitemap: https://bengkulu.shankarajayaabadi.co.id/sitemap.xml
+Sitemap: https://bengkulu.shankarajayaabadi.co.id/sitemap.xml.gz
