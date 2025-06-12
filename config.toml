@@ -1,0 +1,309 @@
+baseURL = "https://shankarajayaabadi.co.id/"
+languageCode = "id"
+title = "shankarajayaabadi.co.id | Distributor & Aplikator Plafon PVC & Wall PVC"
+theme = "saeseen-hugo"
+summaryLength = 25
+[pagination]
+  pagerSize = 6
+
+[permalinks]
+  post = "/:slug/"
+  page = "/:slug/"
+  category = "/:slug/"
+
+[params]
+  meta_description = "shankarajayaabadi.co.id adalah distributor, agen, dan aplikator plafon PVC & wall PVC/WVC dengan jaringan cabang di Lampung, Jambi, Bengkulu, Sumatra Barat, dan Sumatra Selatan. Solusi modern untuk interior rumah dan bangunan Anda."
+  viewport = "width=device-width, initial-scale=1.0"
+  fontawesome = "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+  logo = "/images/logo/Shankara-logo120x80.png"
+  logo_amp = "/images/logo/Shankara-logo512x512.png"
+  footer_logo = "/images/logo/Shankara-logo120x80-putih.png"
+  favicon = "/images/logo/Shankara-logo512x512.png"
+  featured_image = "/images/admin/featured-image.png"
+  author = "K. Duhri"
+  telepon = "//+6281279947777"
+  whatsapp = "//api.whatsapp.com/send?phone=6281279947777&text=*Halo shankarajayaabadi.co.id*%20%3A"
+  tocMinWordCount = 300
+
+  geo_latitude = -6.595038
+  geo_longitude = 106.817787
+  opening_hours = "Mo-Sa 08:00-17:00"
+  base_price = "50000"
+  price_range = "10000000"
+  keywords = [
+    "plafon PVC", "wall PVC", "WVC", "aplikator plafon", "agen plafon", "distributor plafon", "interior rumah", "plafon minimalis", "wallpanel PVC", "dekorasi dinding", "plafon modern"
+  ]
+  area_served = [
+    "Lampung", "Jambi", "Bengkulu", "Sumatra Barat", "Sumatra Selatan"
+  ]
+  materials = [
+    "Plafon PVC", "Wall PVC/WVC", "Aksesoris Plafon", "Lis Plafon", "Panel Dinding PVC"
+  ]
+  payment_methods = ["COD", "Transfer Bank", "Bayar Ditempat", "Transfer Setelah Pengiriman"]
+  return_policies = [
+    "Garansi pemasangan rapi", "Produk original & bergaransi", "Pengembalian sesuai syarat & ketentuan"
+  ]
+
+  companyName = "shankarajayaabadi.co.id"
+  aboutUs = "Kami adalah distributor, agen, dan aplikator plafon PVC & wall PVC/WVC dengan cabang penjualan di Lampung, Jambi, Bengkulu, Sumatra Barat, dan Sumatra Selatan. Menyediakan solusi interior modern, tahan lama, dan bergaransi untuk rumah dan bangunan Anda."
+
+  phone = "0812-7994-7777"
+  email = "shankarajayaabadi.official1@gmail.com"
+  address = "Jl. Purnawirawan Raya No.90b, Gunung Terang, Kec. Langkapura, Kota Bandar Lampung, Lampung 35145"
+  whatsappNumber = "6281279947777"
+
+  hero_image = "/images/admin/bg-hero.jpg"
+  hero_title = "Distributor & Aplikator Plafon PVC & Wall PVC"
+  hero_description = "Percayakan kebutuhan plafon dan wall PVC Anda pada shankarajayaabadi.co.id. Kami siap melayani pemasangan dan pengiriman ke seluruh wilayah Lampung, Jambi, Bengkulu, Sumatra Barat, dan Sumatra Selatan."
+  hero_cta_text = "Cek Produk & Harga"
+
+  services_title = "Layanan Kami"
+  services_description = "Kami melayani penjualan, pengiriman, dan pemasangan plafon PVC serta wall PVC/WVC untuk rumah, kantor, dan bangunan komersial. Didukung tim profesional dan produk bergaransi."
+  services_cta_text = "Lihat Katalog Produk"
+
+  footer_about_title = "Keunggulan Kami"
+  footer_about_description = "Jaringan cabang luas, produk bergaransi, pemasangan profesional, harga kompetitif, konsultasi gratis, pelayanan cepat, tim berpengalaman, pilihan motif lengkap, layanan purna jual, dan dukungan teknis responsif."
+  footer_services_title = "Kenapa Pilih Kami"
+  footer_contact_title = "Kontak Kami"
+  footer_bottom_text = "@2025 shankarajayaabadi.co.id. All Rights Reserved."
+
+  testimonials_title = "Testimoni Pelanggan"
+
+  # Marketing Branches Section
+  branches_title = "Cabang Pemasaran"
+  branches_description = "Kami hadir di berbagai wilayah untuk melayani kebutuhan Anda"
+
+  # Advantages Section
+  advantages_title = "Keunggulan Kami"
+  advantages_description = "Mengapa harus memilih shankarajayaabadi.co.id"
+
+[[params.hero_slides]]
+  image = "/images/slider/hero-1.jpg"
+  title = "Plafon PVC Premium"
+  description = "Material berkualitas dengan instalasi profesional"
+
+[[params.hero_slides]]
+  image = "/images/slider/hero-2.jpg"
+  title = "Wall Panel PVC"
+  description = "Solusi dinding modern dan praktis"
+
+[[params.hero_slides]]
+  image = "/images/slider/hero-3.jpg"
+  title = "Layanan Terpercaya" 
+  description = "Tim ahli berpengalaman siap melayani"
+
+[[params.branches]]
+  name = "Lampung"
+  url = "https://lampung.shankarajayaabadi.co.id/"
+  description = "Melayani area Bandar Lampung dan sekitarnya"
+  icon = "fas fa-map-marker-alt"
+
+[[params.branches]]
+  name = "Jambi"
+  url = "https://jambi.shankarajayaabadi.co.id/"
+  description = "Melayani area Jambi dan sekitarnya"
+  icon = "fas fa-map-marker-alt"
+
+[[params.branches]]
+  name = "Bengkulu"
+  url = "https://bengkulu.shankarajayaabadi.co.id/"
+  description = "Melayani area Bengkulu dan sekitarnya"
+  icon = "fas fa-map-marker-alt"
+
+[[params.branches]]
+  name = "Sumatra Barat"
+  url = "https://sumbar.shankarajayaabadi.co.id/"
+  description = "Melayani area Sumatra Barat dan sekitarnya"
+  icon = "fas fa-map-marker-alt"
+
+[[params.branches]]
+  name = "Sumatra Selatan"
+  url = "https://sumsel.shankarajayaabadi.co.id/"
+  description = "Melayani area Sumatra Selatan dan sekitarnya"
+  icon = "fas fa-map-marker-alt"
+
+[[params.advantages]]
+  title = "Produk Berkualitas"
+  description = "Material premium dengan standar kualitas tinggi"
+  icon = "fas fa-award"
+
+[[params.advantages]]
+  title = "Tim Profesional"
+  description = "Dikerjakan oleh tim ahli berpengalaman"
+  icon = "fas fa-users"
+
+[[params.advantages]]
+  title = "Garansi Produk"
+  description = "Garansi untuk setiap produk yang kami pasang"
+  icon = "fas fa-shield-alt"
+
+[[params.advantages]]
+  title = "Harga Kompetitif"
+  description = "Harga bersaing dengan kualitas terjamin"
+  icon = "fas fa-tags"
+
+[[params.services]]
+  image = "/images/page/plafon-pvc-utama.jpg"
+  title = "Plafon PVC"
+  description = "Solusi plafon modern, tahan air, anti rayap, dan mudah dibersihkan. Tersedia berbagai motif dan warna."
+  url = "/products/plafon-pvc"
+
+[[params.services]]
+  image = "/images/page/wall-pvc-wvc.jpg"
+  title = "Wall PVC / WVC"
+  description = "Panel dinding PVC/WVC untuk dekorasi interior yang elegan, mudah dipasang, dan perawatan minimal."
+  url = "/products/wall-pvc"
+
+  [[params.footer_services]]
+    text = "shankarajayaabadi.co.id adalah mitra terpercaya untuk kebutuhan plafon dan wall PVC. Produk original, pemasangan profesional, dan layanan purna jual terbaik. Cakupan area: Lampung (Bandar Lampung, Metro, Pringsewu, dll), Bengkulu (Kota Bengkulu, Kepahiang, Curup, dll), Jambi (Kota Jambi, Muaro Jambi, dll), Sumatra Barat (Padang, Bukittinggi, Payakumbuh, dll), Sumatra Selatan (Palembang, Prabumulih, Lubuklinggau, dll)."
+
+  [[params.footer_contact]]
+    icon = "fas fa-map-marker-alt"
+    text = "Jl. Purnawirawan Raya No.90b, Gunung Terang, Kec. Langkapura, Kota Bandar Lampung, Lampung 35145"
+  [[params.footer_contact]]
+    icon = "fas fa-phone-alt"
+    text = "+62 812-7994-7777"
+  [[params.footer_contact]]
+    icon = "fas fa-envelope"
+    text = "shankarajayaabadi.official1@gmail.com"
+
+[[params.testimonials]]
+  avatar = "/images/admin/avatar1.png"
+  name = "Dewi"
+  message = "Plafon PVC dari shankarajayaabadi.co.id sangat berkualitas dan pemasangannya rapi. Rumah jadi lebih modern!"
+  response = "Terima kasih, Dewi! Kepuasan Anda adalah prioritas kami."
+
+[[params.testimonials]]
+  avatar = "/images/admin/avatar2.png"
+  name = "Rizal"
+  message = "Pelayanan cepat dan ramah. Wall PVC-nya bikin ruang tamu saya tampil beda."
+  response = "Senang bisa membantu mewujudkan interior impian Anda, Rizal!"
+
+[[params.testimonials]]
+  avatar = "/images/admin/avatar3.png"
+  name = "Sari"
+  message = "Proses pemesanan mudah, harga bersaing, dan hasil pemasangan plafon sangat memuaskan."
+  response = "Terima kasih atas kepercayaannya, Sari!"
+
+[[params.testimonials]]
+  avatar = "/images/admin/avatar4.png"
+  name = "Andi"
+  message = "Cabang penjualannya banyak, jadi mudah untuk konsultasi dan survei lokasi."
+  response = "Kami siap melayani di seluruh wilayah Sumatra!"
+
+[[params.testimonials]]
+  avatar = "/images/admin/avatar5.png"
+  name = "Budi"
+  message = "Produk original, pemasangan cepat, dan hasilnya sangat rapi. Sangat direkomendasikan!"
+  response = "Terima kasih atas rekomendasinya, Lina. Kami selalu berusaha memberikan yang terbaik!"
+
+[[params.testimonials]]
+  avatar = "/images/admin/avatar6.png"
+  name = "Lina"
+  message = "Harga kompetitif dan pelayanan after sales sangat membantu. Sukses selalu untuk shankarajayaabadi.co.id!"
+  response = "Terima kasih, Budi! Kami siap membantu kapan saja Anda butuh layanan kami."
+
+# Gallery Section Configuration
+[params.gallery]
+  title = "Galeri Produk Kami"
+  description = "Lihat koleksi hasil pemasangan dan produk kami"
+
+[[params.gallery_items]]
+  image = "/images/gallery/plafon-1.jpg"
+  title = "Plafon PVC Kamar Tidur"
+  category = "Plafon PVC"
+  description = "Pemasangan plafon PVC motif kayu pada kamar tidur"
+
+[[params.gallery_items]]
+  image = "/images/gallery/plafon-2.jpg"
+  title = "Plafon PVC Ruang Tamu"
+  category = "Plafon PVC"
+  description = "Desain modern plafon PVC untuk ruang tamu"
+
+[[params.gallery_items]]
+  image = "/images/gallery/wall-1.jpg"
+  title = "Wall PVC Premium"
+  category = "Wall PVC"
+  description = "Panel dinding PVC motif marble untuk interior mewah"
+
+[[params.gallery_items]]
+  image = "/images/gallery/wall-2.jpg"
+  title = "WVC Ruang Keluarga"
+  category = "Wall PVC"
+  description = "Aplikasi wall PVC tekstur 3D pada ruang keluarga"
+
+[[params.gallery_items]]
+  image = "/images/gallery/plafon-3.jpg"
+  title = "Plafon PVC Dapur"
+  category = "Plafon PVC"
+  description = "Plafon PVC anti air untuk area dapur"
+
+[[params.gallery_items]]
+  image = "/images/gallery/wall-3.jpg"
+  title = "Wall PVC Kamar Mandi"
+  category = "Wall PVC"
+  description = "Wall PVC tahan air untuk kamar mandi modern"
+
+[[params.products]]
+  name = "Plafon PVC"
+[[params.products.items]]
+  item = "Plafon PVC Motif Kayu"
+  price = "120.000 /m²"
+[[params.products.items]]
+  item = "Plafon PVC Motif Polos"
+  price = "110.000 /m²"
+[[params.products.items]]
+  item = "Plafon PVC Motif Marble"
+  price = "130.000 /m²"
+[[params.products.items]]
+  item = "Plafon PVC Premium"
+  price = "150.000 /m²"
+
+[[params.products]]
+  name = "Wall PVC / WVC"
+[[params.products.items]]
+  item = "Wall PVC Motif Kayu"
+  price = "140.000 /m²"
+[[params.products.items]]
+  item = "Wall PVC Motif Polos"
+  price = "135.000 /m²"
+[[params.products.items]]
+  item = "Wall PVC Motif 3D"
+  price = "170.000 /m²"
+[[params.products.items]]
+  item = "Wall PVC Premium"
+  price = "190.000 /m²"
+
+  [[params.menu_items]]
+    title = "Beranda"
+    url = "/"
+  [[params.menu_items]]
+    title = "Tentang Kami"
+    url = "/profile/"
+  [[params.menu_items]]
+    title = "Harga"
+    url = "/daftar-harga/"
+   [[params.menu_items]]
+    title = "Blog"
+    url = "https://blog.shankarajayaabadi.co.id/"
+  [[params.menu_items]]
+    title = "Promo"
+    url = "/promo/"
+
+[params.header]
+   title = "Distributor Plafon & Wall PVC Terlengkap di Lampung, Bengkulu, Jambi, Sumbar dan Sumsel | "
+   highlight = "PT. SHANKARA JAYA ABADI"
+
+[markup]
+  [markup.tableOfContents]
+    startLevel = 1
+    endLevel = 3
+
+[related]
+  threshold = 80
+  includeNewer = true
+  toLower = false
+
+[[related.indices]]
+  name = "categories"
+  weight = 100

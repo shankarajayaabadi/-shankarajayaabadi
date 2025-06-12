@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+{{ partial "head.html" . }}
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17168405391"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17168405391');
+</script>
+</head>
+<body>
+    {{ partial "header.html" . }}
+    {{ block "main" . }}{{ end }}
+    {{ partial "footer.html" . }}
+    <div class="main-content">
+    {{- if or .Site.Params.enableWhatApps .Site.Params.enableTelepon -}}
+        {{- partial "salam-chat.html" . -}}
+    {{- end -}}
+    </div>
+{{ block "scripts" . }}
+{{ end }}
+<button id="back-to-top" title="Back to Top">↑</button>
+<script src="{{ "js/back-to-top.js" | relURL }}" defer></script>
+</body>
+</html>

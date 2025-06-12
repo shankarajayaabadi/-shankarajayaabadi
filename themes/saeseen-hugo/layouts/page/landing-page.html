@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }}</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="{{ .Site.Params.fontawesome }}">
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-17168405391"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17168405391');
+</script>
+<!-- Event snippet for Kunjungan halaman conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
+<script>
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-17168405391/48MqCOSPlNYaEI-nxPo_',
+      'value': 1.0,
+      'currency': 'IDR',
+      'event_callback': callback
+  });
+  return false;
+}
+</script>
+</head>
+<body>
+
+<main class="landing-main">
+    {{ with .Params.hero.image }}
+    <div class="landing-hero-image">
+        <img src="{{ . }}" alt="Gambar Promo" />
+    </div>
+    {{ end }}
+
+    <div class="container">
+        {{ .Content }}
+    </div>
+
+    <!-- Tambahkan Gallery Section -->
+    <section class="gallery-section">
+        <div class="container">
+            <h2>{{ .Site.Params.gallery.title }}</h2>
+            <p class="section-description">{{ .Site.Params.gallery.description }}</p>
+            
+            <div class="gallery-grid">
+                {{ range .Site.Params.gallery_items }}
+                <div class="gallery-item">
+                    <img src="{{ .image }}" alt="{{ .title }}">
+                    <div class="gallery-item-content">
+                        <h3>{{ .title }}</h3>
+                        <span class="category">{{ .category }}</span>
+                        <p>{{ .description }}</p>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <div class="container">
+            <!-- Tambahkan Countdown Timer -->
+            <div class="countdown-timer">
+                <h3>Promo Berakhir Dalam:</h3>
+                <div class="countdown-wrapper">
+                    <div class="countdown-item">
+                        <span id="days">00</span>
+                        <span class="countdown-label">Hari</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <span class="countdown-label">Jam</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <span class="countdown-label">Menit</span>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <span class="countdown-label">Detik</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Tambahkan tombol direct WhatsApp tanpa div container -->
+            <a href="{{ .Site.Params.whatsapp }}" class="whatsapp-button">
+                <i class="fab fa-whatsapp"></i>
+                Hubungi Admin Via WhatsApp
+            </a>
+        </div>
+    </section>
+</main>
+
+<script>
+function submitToWhatsApp(e) {
+    e.preventDefault();
+    
+    const nama = document.getElementById('nama').value;
+    const alamat = document.getElementById('alamat').value;
+    const jumlah = document.getElementById('jumlah').value;
+    const catatan = document.getElementById('catatan').value;
+    
+    const message = `*Pesanan Baru!*%0A%0A` +
+        `Nama: ${nama}%0A` +
+        `Alamat: ${alamat}%0A` +
+        `Jumlah: ${jumlah} m²%0A%0A` +
+        `Catatan: ${catatan}%0A%0A` +
+        `*Mohon segera diproses, terima kasih!*`;
+    
+    window.location.href = `{{ .Site.Params.whatsapp }}${message}`;
+}
+
+// Tambahkan Script Countdown
+function countdown() {
+    // Set tanggal target (7 hari dari sekarang)
+    function getTargetDate() {
+        const now = new Date();
+        const target = new Date(now);
+        target.setDate(now.getDate() + 7);
+        target.setHours(23, 59, 59, 0);
+        return target;
+    }
+
+    let target = getTargetDate();
+
+    function update() {
+        const now = new Date().getTime();
+        let distance = target - now;
+
+        if (distance < 0) {
+            // Reset target ke 7 hari berikutnya dari sekarang
+            target = getTargetDate();
+            distance = target - now;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+        document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+        document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+        document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+    }
+
+    update();
+    setInterval(update, 1000);
+}
+
+countdown();
+</script>
+
+</body>
+</html>

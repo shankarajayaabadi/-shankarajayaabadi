@@ -1,0 +1,95 @@
+{{ define "main" }}
+<section class="home">
+    <div class="container">
+        <div class="hero-slider swiper">
+            <div class="swiper-wrapper">
+                {{ range .Site.Params.hero_slides }}
+                <div class="swiper-slide">
+                    <div class="hero-slide-inner">
+                        <div class="hero-image">
+                            <img src="{{ .image }}" alt="{{ .title }}">
+                            <div class="hero-overlay"></div>
+                        </div>
+                        <div class="hero-content">
+                            <h1>{{ .title }}</h1>
+                            <p>{{ .description }}</p>
+                            <a href="#services" class="cta-button">{{ $.Site.Params.hero_cta_text }}</a>
+                        </div>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+
+        <!-- Advantages Section -->
+        <div class="advantages" id="advantages">
+            <h2>{{ .Site.Params.advantages_title }}</h2>
+            <p class="section-description">{{ .Site.Params.advantages_description }}</p>
+            <div class="advantages-grid">
+                {{ range .Site.Params.advantages }}
+                <div class="advantage-item">
+                    <i class="{{ .icon }}"></i>
+                    <h3>{{ .title }}</h3>
+                    <p>{{ .description }}</p>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+
+        <!-- Services Section -->
+        <div class="services" id="services">
+            <h2>{{ .Site.Params.services_title }}</h2>
+            <p class="section-description">{{ .Site.Params.services_description }}</p>
+            <div class="services-grid">
+                {{ range .Site.Params.services }}
+                <div class="service-item">
+                    <img src="{{ .image }}" alt="{{ .title }}">
+                    <h3><a href="{{ .url }}" target="_blank">{{ .title }}</a></h3>
+                    <p>{{ .description }}</p>
+                </div>
+                {{ end }}
+            </div>
+            <a href="/daftar-harga/" class="cta-button">{{ .Site.Params.services_cta_text }} <i class="fas fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Branches Section -->
+        <div class="branches" id="branches">
+            <h2>{{ .Site.Params.branches_title }}</h2>
+            <p class="section-description">{{ .Site.Params.branches_description }}</p>
+            <div class="branches-grid">
+                {{ range .Site.Params.branches }}
+                <div class="branch-item">
+                    <i class="{{ .icon }}"></i>
+                    <h3><a href="{{ .url }}" target="_blank">{{ .name }}</a></h3>
+                    <p>{{ .description }}</p>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+
+        {{ partial "testimonial.html" . }}
+    </div>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const heroSlider = new Swiper('.hero-slider', {
+        slidesPerView: 1,
+        effect: 'fade',
+        fadeEffect: {
+            crossFade: true
+        },
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        }
+    });
+});
+</script>
+{{ end }}

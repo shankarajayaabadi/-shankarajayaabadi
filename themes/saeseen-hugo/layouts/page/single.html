@@ -1,0 +1,69 @@
+{{ define "main" }}
+<div class="product-page">
+    <div class="hero-product" {{ with .Params.featured_image }}style="background-image: url('{{ . }}')"{{ end }}>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>{{ .Title }}</h1>
+                <p class="hero-description">{{ .Description }}</p>
+                <div class="price-tag">{{ .Params.price }}</div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <!-- Benefits Section -->
+        <section class="services">
+            <h2>Keunggulan {{ .Title }}</h2>
+            <div class="services-grid">
+                {{ range .Params.benefits }}
+                <div class="service-item">
+                    <i class="fas {{ .icon }}"></i>
+                    <h3>{{ .title }}</h3>
+                    <p>{{ .desc }}</p>
+                </div>
+                {{ end }}
+            </div>
+        </section>
+        <!-- Content Section -->
+        <section class="archive">
+            <div class="archive-item">
+                {{ .Content }}
+            </div>
+        </section>
+        <!-- Features Section -->
+        <section class="gallery-section">
+            <h2>Fitur Unggulan</h2>
+            <div class="gallery-grid">
+                {{ range .Params.features }}
+                <div class="gallery-item">
+                    <div class="gallery-item-content">
+                        <span class="category"><i class="fas fa-check"></i></span>
+                        <p>{{ . }}</p>
+                    </div>
+                </div>
+                {{ end }}
+            </div>
+        </section>
+        {{ if .Params.gallery }}
+        <section class="product-gallery">
+            <h2>Galeri Produk</h2>
+            <div class="product-gallery-grid">
+                {{ range .Params.gallery }}
+                <div class="product-gallery-item">
+                    <img src="{{ .image }}" alt="{{ .caption }}" loading="lazy">
+                    {{ if .caption }}<div class="product-gallery-caption">{{ .caption }}</div>{{ end }}
+                </div>
+                {{ end }}
+            </div>
+        </section>
+        {{ end }}
+        <!-- Contact Section -->
+        <section id="contact" class="direct-contact">
+            <h2>Hubungi Kami Sekarang</h2>
+            <a href="https://wa.me/{{ .Site.Params.whatsappNumber }}?text=Halo, saya tertarik dengan {{ .Title }}" class="whatsapp-button">
+                <i class="fab fa-whatsapp"></i> Chat WhatsApp
+            </a>
+        </section>
+    </div>
+</div>
+{{ end }}
